@@ -1,12 +1,25 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { Authcontext } from "../Authprovaider/Authprovaider";
 
 const Navbar = () => {
+    const {user , userLogout} = useContext(Authcontext); 
     const links = <>
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='/about'>About</NavLink></li>
     <li><NavLink to='/book'>Book</NavLink></li>
     <li><NavLink to='/blogs'>Blogs</NavLink></li>
     </>
+
+    const handleLogout = () =>{
+        userLogout()
+        .then(result =>{
+            console.log(result.user)
+        })
+        .catch(error =>{
+            console.log(error)
+        })
+    }
     return (
         <div>
             <div className="navbar bg">
@@ -21,7 +34,7 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl italic font-bold">Just Music</a>
+                    <a className="btn btn-ghost normal-case text-xl italic font-bold">Black bran</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -31,7 +44,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <button className="btn"><Link to='/login'>Log in</Link></button>
+                    {
+                        user ? 
+                        <button className="btn" onClick={handleLogout}><Link>Sign out</Link></button>
+                        :
+                        <button className="btn"><Link to='/login'>Log in</Link></button>
+                    }
                     <button className="btn ml-2"><Link to="/register">Register</Link></button>
                 </div>
             </div>

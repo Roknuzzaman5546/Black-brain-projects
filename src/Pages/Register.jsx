@@ -1,14 +1,34 @@
+import { useContext, useState } from "react";
 import Navbar from "../Navbar/Navbar";
+import { Authcontext } from "../Authprovaider/Authprovaider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Link } from "react-router-dom";
 
 const Register = () => {
+    const { userRegister } = useContext(Authcontext)
+    const [error, setError] = useState(null);
 
-    const handleregister = e  =>{
+    const handleRegister = e => {
         e.preventDefault()
-        const name = e.target.name.value;
         const email = e.target.email.value;
-        const password = e.target. password.value;
-        console.log(name, email, password)
+        const password = e.target.password.value;
+        setError('')
+        if(!/[A-Z]/.test(password)){
+            return setError('Please Type at least 1 capital letter password')
+        }
+        userRegister(email, password)
+            .then(result => {
+                const user = result.user;
+                if (user) {
+                    toast('User register sucsessfully',user.displayname)
+                }
+            })
+            .catch(error => {
+                setError(error.message)
+            })
     }
+
     return (
         <div>
             <Navbar></Navbar>
@@ -18,7 +38,7 @@ const Register = () => {
                         <h1 className="text-5xl font-bold">Register now!</h1>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-sky-400">
-                        <form className="card-body" onSubmit={handleregister}>
+                        <form className="card-body" onSubmit={handleRegister}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
@@ -40,13 +60,18 @@ const Register = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
+                            {
+                                error && <p className=" text-red-600">{error}</p>
+                            }
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>
                             </div>
+                            <p>If you Have a account !! <Link to='/login' className=" text-blue-700 font-bold">Log in</Link> </p>
                         </form>
                     </div>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

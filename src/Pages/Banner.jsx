@@ -1,5 +1,5 @@
 import Navbar from "../Navbar/Navbar";
-import logo from '../assets/logo3.jpg'
+import logo from '../assets/logo4.jpg'
 const Banner = () => {
     return (
         <div>
@@ -8,7 +8,7 @@ const Banner = () => {
                 <Navbar></Navbar>
             </div>
             <div>
-                <h2 className=" text-3xl font-bold absolute md:top-60 top-36 md:left-96 left-4 italic text-center"><span className=" text-blue-700">Entertainment</span> ekhanei !!<br />Cantact us</h2>
+                <h2 className=" text-3xl font-bold absolute md:top-60 font-Blackops top-36 md:left-96 left-4 italic text-center"><span className=" text-blue-700">Entertainment</span> ekhanei !!<br />Cantact us</h2>
             </div>
         </div>
     );
