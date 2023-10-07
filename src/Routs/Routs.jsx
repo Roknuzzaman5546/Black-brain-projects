@@ -6,7 +6,6 @@ import Details from "../Pages/Details";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import Privateraout from "../Privateraout/Privateraout";
-
 const rout = createBrowserRouter([
     {
         path: "/",

@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import Service from "./Service";
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
+import Works from "./Works";
 
 const Home = () => {
     const Bands = useLoaderData()
@@ -20,6 +21,9 @@ const Home = () => {
                         Bands.map(band => <Service key={band.id} band={band}></Service>)
                     }
                 </div>
+            </section>
+            <section className=" mt-10 w-11/12 mx-auto">
+                <Works></Works>
             </section>
             <footer className="mt-10 bg-black">
                 <footer className="footer p-10  text-white w-11/12 mx-auto">
