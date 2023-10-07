@@ -6,6 +6,7 @@ import Details from "../Pages/Details";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import Privateraout from "../Privateraout/Privateraout";
+import About from "../Pages/About/About";
 const rout = createBrowserRouter([
     {
         path: "/",
@@ -15,6 +16,11 @@ const rout = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
+                loader: () => fetch('/band.json')
+            },
+            {
+                path: '/about',
+                element: <About></About>,
                 loader: () => fetch('/band.json')
             },
             {
