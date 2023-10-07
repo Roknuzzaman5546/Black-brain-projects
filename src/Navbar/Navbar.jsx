@@ -14,12 +14,13 @@ const Navbar = () => {
     const handleLogout = () =>{
         userLogout()
         .then(result =>{
-            console.log(result.user)
+            console.log(result)
         })
         .catch(error =>{
             console.log(error)
         })
     }
+
     return (
         <div>
             <div className="navbar bg">
@@ -34,7 +35,7 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl italic font-bold">Black bran</a>
+                    <a className="btn btn-ghost normal-case text-3xl font-bold font-Dancing">Black bran</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

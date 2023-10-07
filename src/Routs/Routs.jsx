@@ -5,6 +5,7 @@ import Error from "../Pages/Error";
 import Details from "../Pages/Details";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
+import Privateraout from "../Privateraout/Privateraout";
 
 const rout = createBrowserRouter([
     {
@@ -19,7 +20,7 @@ const rout = createBrowserRouter([
             },
             {
                 path: '/service/:id',
-                element: <Details></Details>,
+                element: <Privateraout><Details></Details></Privateraout>,
                 loader: () => fetch('/band.json')
             },
             {
