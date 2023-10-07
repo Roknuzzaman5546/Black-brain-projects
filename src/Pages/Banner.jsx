@@ -3,7 +3,7 @@ import logo from '../assets/logo7.jpg'
 const Banner = () => {
     return (
         <div>
-            <img className=" relative lg:h-screen md:h-96 h-96 lg:w-screen md:w-screen opacity-30" src={logo} alt="" />
+            <img className=" relative lg:h-screen md:h-96 h-80 lg:w-screen md:w-screen opacity-30" src={logo} alt="" />
             <div className=" absolute top-1 w-full">
                 <Navbar></Navbar>
             </div>

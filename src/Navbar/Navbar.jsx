@@ -1,24 +1,25 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Authcontext } from "../Authprovaider/Authprovaider";
+import { ToastContainer, toast } from "react-toastify";
 
 const Navbar = () => {
-    const {user , userLogout} = useContext(Authcontext); 
+    const { user, userLogout } = useContext(Authcontext);
     const links = <>
-    <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='/about'>About</NavLink></li>
-    <li><NavLink to='/book'>Book</NavLink></li>
-    <li><NavLink to='/blogs'>Blogs</NavLink></li>
+        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/about'>About</NavLink></li>
+        <li><NavLink to='/book'>Book</NavLink></li>
     </>
 
-    const handleLogout = () =>{
+    const handleLogout = () => {
         userLogout()
-        .then(result =>{
-            console.log(result)
-        })
-        .catch(error =>{
-            console.log(error)
-        })
+            .then(result => {
+                console.log(result)
+                toast('sing out succesfully')
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     return (
@@ -39,21 +40,29 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                       {
-                        links
-                       }
+                        {
+                            links
+                        }
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end flex md:flex-row flex-col-reverse gap-2">
                     {
-                        user ? 
-                        <button className="btn" onClick={handleLogout}><Link>Sign out</Link></button>
-                        :
-                        <button className="btn"><Link to='/login'>Log in</Link></button>
+                        user ?
+                            <div className="flex md:flex-row items-center gap-2">
+                                <h2 className=" md:display font-bold">{user.displayName}</h2>
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-8 rounded-full">
+                                        <img src={user.photoURL} />
+                                    </div>
+                                </label>
+                                <button className="btn" onClick={handleLogout}><Link>Sign out</Link></button>
+                            </div>
+                            :
+                            <button className="btn"><Link to='/login'>Log in</Link></button>
                     }
-                    <button className="btn ml-2"><Link to="/register">Register</Link></button>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

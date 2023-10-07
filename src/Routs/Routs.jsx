@@ -21,7 +21,7 @@ const rout = createBrowserRouter([
             },
             {
                 path: '/about',
-                element: <About></About>,
+                element: <Privateraout><About></About></Privateraout>,
                 loader: () => fetch('/band.json')
             },
             {

@@ -3,9 +3,10 @@ import Navbar from "../Navbar/Navbar";
 import { Authcontext } from "../Authprovaider/Authprovaider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import { BsGoogle } from "react-icons/bs";
 
 const Login = () => {
-    const { userlogin } = useContext(Authcontext)
+    const { userlogin, userGoogle } = useContext(Authcontext)
     const [error, setError] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
@@ -27,6 +28,16 @@ const Login = () => {
                 console.log(error)
                 setError("Email or pasword dosn't match")
             })
+    }
+
+    const handleGoogleLogin = () =>{
+        userGoogle()
+        .then(result =>{
+            console.log(result.user)
+        })
+        .catch(error =>{
+            console.log(error.message)
+        })
     }
     return (
         <div>
@@ -59,6 +70,7 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-secondary">Login</button>
                             </div>
+                            <button onClick={handleGoogleLogin} className=" btn btn-outline btn-neutral flex gap-2 items-center"><BsGoogle></BsGoogle> Log in with Google</button>
                             <p>If you do not have account <Link to='/register' className=" text-blue-700 font-bold">Register</Link> </p>
                         </form>
                     </div>

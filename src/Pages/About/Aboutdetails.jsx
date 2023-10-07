@@ -1,6 +1,7 @@
 
 const Aboutdetails = ({band}) => {
     const {img, details, fee, name, title} = band;
+    
     return (
         <div>
             <div className=" my-6">
