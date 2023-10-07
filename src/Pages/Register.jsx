@@ -15,17 +15,21 @@ const Register = () => {
         const password = e.target.password.value;
         setError('')
         if(!/[A-Z]/.test(password)){
-            return setError('Please Type at least 1 capital letter password')
+            return setError('Please Type password at least 1 capital letter')
+        }
+        if (!/[!@#$%^&*()]/.test(password)) {
+            return setError(' Password should be 1 Speachial cerarcter')
         }
         userRegister(email, password)
             .then(result => {
                 const user = result.user;
                 if (user) {
-                    toast('User register sucsessfully',user.displayname)
+                    toast('User register sucsessfully go to home')
                 }
             })
             .catch(error => {
                 setError(error.message)
+                console.log(error)
             })
     }
 

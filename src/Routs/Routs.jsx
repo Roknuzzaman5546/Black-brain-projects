@@ -26,7 +26,8 @@ const rout = createBrowserRouter([
             },
             {
                 path: '/book',
-                element: <Book></Book>
+                element: <Privateraout><Book></Book></Privateraout>,
+                loader: () => fetch('/band.json')
             },
             {
                 path: '/service/:id',

@@ -1,24 +1,32 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import { Authcontext } from "../Authprovaider/Authprovaider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
-    const {userlogin} = useContext(Authcontext)
+    const { userlogin } = useContext(Authcontext)
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
-    const handlLogin = e  =>{
+
+    const handlLogin = e => {
         e.preventDefault()
         const email = e.target.email.value;
-        const password = e.target. password.value;
+        const password = e.target.password.value;
+        setError('')
         userlogin(email, password)
-        .then(result =>{
-            console.log('user logged succesfully',result.user)
-            navigate(location.state ? location.state  : '/')
-        })
-        .catch(error =>{
-            console.log(error)
-        })
+            .then(result => {
+                console.log('user logged succesfully', result.user)
+                if (result.user) {
+                    toast("log is succesfully go to home Page")
+                    navigate( location?.state ? location.state : ('/'))
+                }
+            })
+            .catch(error => {
+                console.log(error)
+                setError("Email or pasword dosn't match")
+            })
     }
     return (
         <div>
@@ -45,6 +53,9 @@ const Login = () => {
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
+                            {
+                                error && <p className=" font-bold text-red-500 text-sm">{error}</p>
+                            }
                             <div className="form-control mt-6">
                                 <button className="btn btn-secondary">Login</button>
                             </div>
@@ -53,6 +64,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };
