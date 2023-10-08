@@ -18,10 +18,11 @@ const Login = () => {
         setError('')
         userlogin(email, password)
             .then(result => {
-                console.log('user logged succesfully', result.user)
                 if (result.user) {
-                    toast("Log is succesfully go to home Page")
-                    navigate( location?.state ? location.state : ('/'))
+                    toast("Log in succesfully go to home Page")
+                    setTimeout(() =>{
+                        navigate( location?.state ? location.state :'/')
+                    }, 1200)
                 }
             })
             .catch(error => {
@@ -35,6 +36,9 @@ const Login = () => {
         .then(result =>{
             console.log(result.user)
             toast('Log in seccesfully Go to home')
+            setTimeout(() =>{
+                navigate( location?.state ? location.state :'/')
+            }, 1500)
         })
         .catch(error =>{
             console.log(error.message)
@@ -43,12 +47,12 @@ const Login = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="hero rounded-lg bg-orange-200 w-11/12 mt-10 mx-auto">
+            <div className="hero rounded-lg bg-sky-200 w-11/12 mt-10 mx-auto">
                 <div className="hero-content flex-col">
                     <div className="text-center">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-orange-300">
+                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-sky-500">
                         <form className="card-body" onSubmit={handlLogin}>
                             <div className="form-control">
                                 <label className="label">

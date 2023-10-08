@@ -14,7 +14,7 @@ const Service = ({ band }) => {
                         <h2 className=" text-2xl font-bold text-orange-500">{name}</h2>
                         <p className=" font-bold">Amount: {fee} $</p>
                         <h2 className="card-title flex-grow text-center">{title}</h2>
-                        <button className=" btn btn-primary btn-outline">Book now</button>
+                        <button className=" btn btn-primary btn-outline">Details</button>
                     </div>
                 </div>
             </Link>

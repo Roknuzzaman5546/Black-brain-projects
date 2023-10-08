@@ -5,7 +5,7 @@ import work3 from '../assets/work3.jpg'
 import work4 from '../assets/work4.jpg'
 import Aos from 'aos';
 
-const Works = () => {
+const  Works = () => {
 
     useEffect(() =>{
         Aos.init({

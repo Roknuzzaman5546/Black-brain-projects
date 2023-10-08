@@ -2,6 +2,7 @@ import Banner from "./Banner";
 import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs";
 import Works from "./Works";
 import App from "../Aos/Aos";
+import { ToastContainer } from "react-toastify";
 
 const Home = () => {
     return (
@@ -47,6 +48,7 @@ const Home = () => {
                     </nav>
                 </footer>
             </footer>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

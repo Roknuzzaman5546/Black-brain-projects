@@ -15,6 +15,7 @@ const Details = () => {
                 <h2 className=" text-2xl text-orange-500 font-bold mt-2">{band.name}</h2>
                 <p className=" font-bold text-xl text-orange-500">Fee: {band.fee} $</p>
                 <p className=" italic">{band.details}</p>
+                <Link to='/book'><button className=" my-3 btn btn-outline btn-warning">Book us</button></Link>
                 <Link to="/">
                     <button className=" my-2 bg-orange-600 px-7 py-2 text-white flex items-center gap-1"><BsArrowBarLeft></BsArrowBarLeft> Show our all service</button>
                 </Link>

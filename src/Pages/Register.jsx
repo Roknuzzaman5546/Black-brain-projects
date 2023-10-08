@@ -3,11 +3,12 @@ import Navbar from "../Navbar/Navbar";
 import { Authcontext } from "../Authprovaider/Authprovaider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
     const { userRegister } = useContext(Authcontext)
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     const handleRegister = e => {
         e.preventDefault()
@@ -25,6 +26,9 @@ const Register = () => {
                 const user = result.user;
                 if (user) {
                     toast('User register sucsessfully go to home')
+                    setTimeout(() =>{
+                        navigate( location?.state ? location.state :'/')
+                    }, 1500)
                 }
             })
             .catch(error => {

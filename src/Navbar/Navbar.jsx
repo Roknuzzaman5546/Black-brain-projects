@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Authcontext } from "../Authprovaider/Authprovaider";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, } from "react-toastify";
 
 const Navbar = () => {
     const { user, userLogout } = useContext(Authcontext);
@@ -15,7 +15,6 @@ const Navbar = () => {
         userLogout()
             .then(result => {
                 console.log(result)
-                toast('sing out succesfully')
             })
             .catch(error => {
                 console.log(error)
