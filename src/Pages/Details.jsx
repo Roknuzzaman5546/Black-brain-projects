@@ -13,7 +13,8 @@ const Details = () => {
             <div>
                 <img className=" w-11/12 h-96" src={band.img} alt="" />
                 <h2 className=" text-2xl text-orange-500 font-bold mt-2">{band.name}</h2>
-                <p>{band.details}</p>
+                <p className=" font-bold text-xl text-orange-500">Fee: {band.fee} $</p>
+                <p className=" italic">{band.details}</p>
                 <Link to="/">
                     <button className=" my-2 bg-orange-600 px-7 py-2 text-white flex items-center gap-1"><BsArrowBarLeft></BsArrowBarLeft> Show our all service</button>
                 </Link>

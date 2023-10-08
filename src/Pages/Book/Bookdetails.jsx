@@ -1,5 +1,7 @@
+import PropTypes from 'prop-types';
+
 const Bookdetails = ({ band }) => {
-    const { id, img, fee, title, name } = band;
+    const {  img, fee, name } = band;
     return (
         <div className="">
             <img className=" w-11/12 mx-auto h-56 mb-3 rounded-lg" src={img} alt="" />
@@ -11,4 +13,7 @@ const Bookdetails = ({ band }) => {
     );
 };
 
+Bookdetails.propTypes ={
+    band:PropTypes.object
+}
 export default Bookdetails;

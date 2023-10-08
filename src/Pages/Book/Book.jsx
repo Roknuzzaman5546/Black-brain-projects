@@ -19,7 +19,7 @@ const Book = () => {
                 <div className="carousel h-96 w-full">
                     <div id="item1" className="carousel-item w-full">
                         <img src={work1} className="w-full relative opacity-30" />
-                        <h2 className=" text-3xl font-bold absolute lg:top-60 md:top-52 font-Blackops top-36 lg:left-96 md:left-56 left-4 italic text-center"><span className=" text-sky-800">Entertainment</span> ekhanei !!<br />Black bran <br /> Heir Your favouirt singer</h2>
+                        <h2 className=" text-3xl font-bold absolute lg:top-60 md:top-58 font-Blackops top-60 lg:left-96 md:left-64 left-4 italic text-center"><span className=" text-sky-800">Entertainment</span> ekhanei !!<br />Black bran <br /> Heir Your favouirt singer</h2>
                     </div>
                     <div id="item2" className="carousel-item w-full">
                         <img src={work2} className="w-full relative opacity-40" />
