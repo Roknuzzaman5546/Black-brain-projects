@@ -20,7 +20,7 @@ const Login = () => {
             .then(result => {
                 console.log('user logged succesfully', result.user)
                 if (result.user) {
-                    toast("log is succesfully go to home Page")
+                    toast("Log is succesfully go to home Page")
                     navigate( location?.state ? location.state : ('/'))
                 }
             })
@@ -34,6 +34,7 @@ const Login = () => {
         userGoogle()
         .then(result =>{
             console.log(result.user)
+            toast('Log in seccesfully Go to home')
         })
         .catch(error =>{
             console.log(error.message)
@@ -42,7 +43,7 @@ const Login = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="hero rounded-lg bg-orange-200 w-11/12 mx-auto">
+            <div className="hero rounded-lg bg-orange-200 w-11/12 mt-10 mx-auto">
                 <div className="hero-content flex-col">
                     <div className="text-center">
                         <h1 className="text-5xl font-bold">Login now!</h1>
@@ -68,10 +69,10 @@ const Login = () => {
                                 error && <p className=" font-bold text-red-500 text-sm">{error}</p>
                             }
                             <div className="form-control mt-6">
-                                <button className="btn btn-secondary">Login</button>
+                                <button className="btn btn-secondary font-Blackops">Login</button>
                             </div>
-                            <button onClick={handleGoogleLogin} className=" btn btn-outline btn-neutral flex gap-2 items-center"><BsGoogle></BsGoogle> Log in with Google</button>
-                            <p>If you do not have account <Link to='/register' className=" text-blue-700 font-bold">Register</Link> </p>
+                            <button onClick={handleGoogleLogin} className=" btn btn-outline btn-neutral flex gap-2 items-center font-bold"><BsGoogle></BsGoogle> Log in with Google</button>
+                            <p className=" mt-2">If you do not have account  <Link to='/register' className=" text-blue-700 text-xl font-bold"> Register</Link> </p>
                         </form>
                     </div>
                 </div>

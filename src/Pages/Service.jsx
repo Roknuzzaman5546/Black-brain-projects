@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 
-
 const Service = ({ band }) => {
     const { img, title, name, id, fee } = band;
+
+
     return (
         <div>
             <Link to={`/service/${id}`}>
-                <div className="card h-96 card-compact bg-base-100 shadow-xl">
+                <div data-aos=" fade-up" className="card h-96 card-compact bg-base-100 shadow-xl">
                     <img className=" h-44 rounded-lg" src={img} alt="" />
                     <div className=" space-y-2 p-2 flex flex-col items-center">
                         <h2 className=" text-2xl font-bold text-orange-500">{name}</h2>
@@ -21,7 +22,7 @@ const Service = ({ band }) => {
     );
 };
 
-Service.propTypes ={
+Service.propTypes = {
     band: PropTypes.object.isRequired
 }
 

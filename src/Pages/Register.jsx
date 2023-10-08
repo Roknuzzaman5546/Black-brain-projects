@@ -36,7 +36,7 @@ const Register = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="hero rounded-lg bg-sky-200 w-11/12 mx-auto">
+            <div className="hero rounded-lg bg-sky-200 mt-10 w-11/12 mx-auto">
                 <div className="hero-content flex-col">
                     <div className="text-center">
                         <h1 className="text-5xl font-bold">Register now!</h1>
@@ -70,7 +70,7 @@ const Register = () => {
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Register</button>
                             </div>
-                            <p>If you Have a account !! <Link to='/login' className=" text-blue-700 font-bold">Log in</Link> </p>
+                            <p className=" mt-2">If you Have a account !! <Link to='/login' className=" text-blue-700 text-xl font-bold">Log in</Link> </p>
                         </form>
                     </div>
                 </div>

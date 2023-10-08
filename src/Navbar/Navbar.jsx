@@ -48,7 +48,7 @@ const Navbar = () => {
                 <div className="navbar-end flex md:flex-row flex-col-reverse gap-2">
                     {
                         user ?
-                            <div className="flex md:flex-row items-center gap-2">
+                            <div className="flex md:flex-row flex-col-reverse items-center md:gap-2">
                                 <h2 className=" md:display font-bold">{user.displayName}</h2>
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                     <div className="w-8 rounded-full">
