@@ -54,7 +54,7 @@ const Book = () => {
                 }
             </div>
                 <h2 className=' text-3xl font-Blackops font-bold text-orange-500 text-center my-10'>Contact us for Booking program</h2>
-            <div className='Book grid md:grid-cols-3 grid-cols-2 gap-7 w-9/12 mx-auto'>
+            <div className='Book grid md:grid-cols-3 grid-cols-1 gap-7 w-9/12 mx-auto'>
                 <div>
                     <h2 className=' flex gap-2 items-center text-2xl font-bold btn btn-outline btn-primary'><BiSolidPhoneCall></BiSolidPhoneCall> Call us</h2>
                     <h2 className=' flex gap-2 items-center text-2xl my-2 font-bold btn btn-outline btn-error'><MdSms></MdSms> Send sms</h2>
